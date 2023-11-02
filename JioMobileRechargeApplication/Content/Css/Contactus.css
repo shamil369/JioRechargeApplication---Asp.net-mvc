@@ -1,0 +1,16 @@
+﻿
+
+#enquirydesc{
+    width:320px;
+    height:120px
+}
+
+
+.contactsuccess {
+    visibility: hidden;
+}
+
+.contacterror {
+    visibility: visible;
+    color:red;
+}

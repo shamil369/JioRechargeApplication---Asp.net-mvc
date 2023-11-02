@@ -1,0 +1,24 @@
+-----------Exception Details on  28-09-2023 11:21:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 28-09-2023 11:21:53
+
+Error Line No : ine 115
+
+Error Message: Exception
+
+Exception Type: System.Exception
+
+Error Location : Error codeInvalid length for a Base-64 char array or string.
+
+ Error Page Url: https://localhost:44305/Admin/EditAdminDetails/3
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

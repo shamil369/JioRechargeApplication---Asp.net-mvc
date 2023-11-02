@@ -1,0 +1,63 @@
+﻿@model IEnumerable<JioMobileRechargeApplication.Models.PlanModel>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="container">
+    <p>&nbsp;</p>
+    <h1 class="text-center">Plans</h1>
+ 
+    <p class="text-end p-2">
+        @Html.ActionLink("Add New", "AddPlanDetails", new { area = "" }, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table table-bordered table-hover table-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Validity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sms)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @*   @Html.HiddenFor(model=>item.Id) *@
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Validity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sms)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Edit", "EditPlanDetails", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "DeletePlan", new { id = item.Id }, new { onclick = "return confirm('Do you want to delete it');", @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<h1>&nbsp;</h1>

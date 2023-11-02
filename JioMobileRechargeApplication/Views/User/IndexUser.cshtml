@@ -1,0 +1,446 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+
+<div class="container">
+    <p>&nbsp;</p>
+
+    <div class="row p-1 userprofil">
+        <div class="d-flex justify-content-between p-5 userfirstdiv">
+            <div>
+                @if (Session["Username"] != null)
+                {
+                    <h3>Welcome @Session["Username"].ToString()</h3>
+                    <div><h4>Jio User Panel</h4></div>
+                }
+                else
+                {
+                    <h3>Welcome User</h3>
+                    <div><h4>Jio User Panel</h4></div>
+                }
+            </div>
+            <div>
+                @{
+                    var base64 = Convert.ToBase64String(@ViewBag.User.Profilephoto);
+                    var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src="@imgsrc" alt="admin" width="100" height="100" />
+            </div>
+        </div>
+        <small>&nbsp;</small>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">First name</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:209px;"><h5 class="text-start"> @ViewBag.User.Firstname</h5> </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Last name</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start"> @ViewBag.User.Lastname</h5> </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Date of birth</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start"> @ViewBag.User.Dateofbirth</h5> </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Gender</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start"> @ViewBag.User.Gender</h5></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Phone number</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start"> @ViewBag.User.Phonenumber</h5></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Email address</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start">@ViewBag.User.Emailaddress</h5></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">State</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start">@ViewBag.User.State</h5> </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">City</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5 class="text-start"> @ViewBag.User.City</h5></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div>
+                <div style="width:210px;"><h5 class="text-start">Address</h5></div>
+            </div>
+            <div>
+                <h5> :</h5>
+            </div>
+            <div>
+                <div style="width:210px;"><h5>@ViewBag.User.Address</h5></div>
+            </div>
+        </div>
+        <div class="d-md-flex justify-content-md-around">
+            <div class="text-center my-3">
+                @Html.ActionLink("Edit Profile", "UserEditDetails", "User", new { id = @ViewBag.User.Id }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+
+    <div class="row justify-content-evenly">
+        <div class="col-md-5 p-4 my-2" style="background-color:skyblue;">
+            <div class="d-flex justify-content-around ">
+                <div>
+                    <h3>Account</h3>
+                    <div>View Account Details</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("View", "AccountView", "User", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col-md-5 p-4 my-2 " style="background-color:skyblue;">
+            <div class="d-flex justify-content-around ">
+                <div>
+                    <h3>Plans</h3>
+                    <div>View Plans to Recharge and Topup</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("View", "PlanView", "User", new { area="" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+    </div>
+    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <div class="col-md-5 p-4 my-2 " style="background-color:skyblue;">
+            <div class="d-flex justify-content-around ">
+                <div>
+                    <h3>Transactions</h3>
+                    <div>View Transaction History</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("View", "ShowTransactionDetail", "User", new { name = @ViewBag.User.Username.ToString() }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function preback() {
+        window.history.forward();
+    }
+    setTimeout("preback()", 0);
+    window.onunload = function () { null; }
+
+</script>
+
+
+@*
+    <div class="dropdown my-2 mx-2">
+                        <p class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: rgba(255,255,255,.5); ">
+                           Dropdown button
+                       </p>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item mx-3" href="#">  @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link text-danger dropdown-item" })</a>
+                            <a class="dropdown-item" href="/Home/About">Something else here</a>
+                        </div>
+                   </div>
+
+
+     <div class="d-md-flex justify-content-md-around">
+            <div>
+                <h6>First name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: @ViewBag.User.Firstname</h6>
+                <h6>Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: @ViewBag.User.Lastname</h6>
+                <h6>Date of Birth&nbsp;&nbsp;&nbsp;&nbsp;: @ViewBag.User.Dateofbirth</h6>
+                <h6>Phone number : @ViewBag.User.Phonenumber</h6>
+                <h6>Email address&nbsp;&nbsp;&nbsp;: @ViewBag.User.Emailaddress</h6>
+            </div>
+            <div class="d-none d-md-block">
+
+                <div style="width:200px;"> <h6>Address : @ViewBag.User.Address</h6> </div>
+                <h6>State        : @ViewBag.User.State</h6>
+                <h6>City         : @ViewBag.User.City</h6>
+            </div>
+            <div class="text-center my-4">
+
+                @Html.ActionLink("Edit Profile", "UserEditDetails", "User", new { id = @ViewBag.User.Id }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+
+       <div class="row justify-content-evenly">
+        <div class="col-md-10 p-4 my-2 account">
+            <h5>My Account</h5>
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>PLAN</h6>
+                    <h6>@ViewBag.Account.Rechargedplan</h6>
+                </div>
+                <div>
+                    <h6>DATA</h6>
+                    <h6>@ViewBag.Account.Data</h6>
+                </div>
+                <div>
+                    <h6>VOICE</h6>
+                    <h6>@ViewBag.Account.Voice</h6>
+                </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>VALIDITY</h6>
+                    <h6>@ViewBag.Account.Validity</h6>
+                </div>
+                <div>
+                    <h6>SMS</h6>
+                    <h6>@ViewBag.Account.Sms</h6>
+                </div>
+                <div>
+                    <h6>BALANCE</h6>
+                    <h6>@ViewBag.Account.Balance</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <h4>New Plans</h4>
+        @foreach (JioMobileRechargeApplication.Models.PlanModel plan in ViewBag.Plans)
+        {
+            <div class="col-md-5 p-4 my-2 plans">
+                <div class="d-flex justify-content-between px-2 ">
+                    <div>
+                        <h3>&#8377; @plan.Price</h3>
+                    </div>
+                    <div>
+                        <h6 class="text-danger"><em>UNLIMITED<br />TRUE 5G</em></h6>
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between px-2 ">
+                    <div>
+                        <h6>VOICE</h6>
+                        <h6>@plan.Voice</h6>
+                    </div>
+                    <div>
+                        <h6>DATA</h6>
+                        <h6>@plan.Data</h6>
+                    </div>
+                    <div>
+                        <h6>VALIDITY</h6>
+                        <h6>@plan.Validity</h6>
+                    </div>
+                </div>
+                <small>&nbsp;</small>
+                <div class="d-flex justify-content-between px-2 ">
+                    <div>
+                        <h6>SMS</h6>
+                        <h6>@plan.Sms</h6>
+                    </div>
+                    <div class="text-end mx-3 my-3">
+                        @Html.ActionLink("Recharge", "Recharge", "User", new { id = @plan.Id }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+    <p>&nbsp;</p>
+    <div class="row ">
+
+        <ul class="d-flex flex-grow-4 topup">
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 100 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;100</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 100 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:purple;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 10 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;10</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 10 }, new { @class = " btn btn-primary" }))
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:lightgreen;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 200 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;200</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 200 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:skyblue;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 50 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;50</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 50 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:mediumaquamarine;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 250 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;250</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 250 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:dodgerblue;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 150 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;150</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 150 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 " style="background-color:blueviolet;">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>Topup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Talktime of 500 </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;500</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Topup", "Topup", "User", new { id = 500 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+*@

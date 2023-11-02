@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="container">
+    <p>&nbsp;</p>
+    <div class="row p-1" style="background-color:orange;">
+        <div class="d-flex justify-content-between p-5 adminfirstdiv">
+            <div>
+                @if (Session["Adminname"] != null)
+                {
+                    <h3>Welcome @Session["Adminname"].ToString()</h3>
+                    <div><h4>Jio Admin Panel</h4></div>
+                }
+                else
+                {
+                    <h3>Welcome adminuser</h3>
+                    <div><h4>Jio Admin Panel</h4></div>
+                }
+            </div>
+            <div style="background-color:yellow;">
+                <img src="~/Images/adminlogo.png" alt="admin" />
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <div class="col-md-5 p-4 my-2" style="background-color:aquamarine;">
+            <div class="d-flex justify-content-around ">
+                <div >
+                    <h3>Admin</h3>
+                    <div>Manage Admin like Edit, Add, Delete operations</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("Manage", "GetAdminDetails", "Admin", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col-md-5 p-4 my-2 " style="background-color:aquamarine;">
+            <div class="d-flex justify-content-around ">
+                <div >
+                    <h3>User</h3>
+                    <div>Manage User like Edit, Add, Delete operations</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("Manage", "GetDetails", "Register", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+
+    </div>
+    <small>&nbsp;</small>
+    <div class="row justify-content-evenly">
+        <div class="col-md-5 p-4 my-2" style="background-color:aquamarine;">
+            <div class="d-flex justify-content-around ">
+                <div >
+                    <h3>Plans</h3>
+                    <div>Manage Plans to Add,edit,Delete</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("Manage", "GetPlanDetails", "Admin", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col-md-5 p-4 my-2 " style="background-color:aquamarine;">
+            <div class="d-flex justify-content-around ">
+                <div>
+                    <h3>Enquiries</h3>
+                    <div>Manage Enquiry, Feedback, Complaints</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("Manage", "GetContactDetails", "Admin", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <small>&nbsp;</small>
+    <div class="row justify-content-evenly">
+        <div class="col-md-5 p-4 my-2" style="background-color:aquamarine;">
+            <div class="d-flex justify-content-around ">
+                <div >
+                    <h3>Transactions</h3>
+                    <div>View Transaction History</div>
+                </div>
+                <div style="background-color:yellow;">
+                    <img class="subimage" src="~/Images/admin.png" alt="admin" width="170" height="120" />
+                </div>
+            </div>
+            <small>&nbsp;</small>
+            <div class="text-end mx-3">
+                @Html.ActionLink("View", "GetTransactionDetail", "Admin", new { area = "" }, new { @class = " btn btn-primary" })
+            </div>
+        </div>
+
+       
+    </div>
+</div>
+<script type="text/javascript">
+    function preback() {
+        window.history.forward();
+    }
+    setTimeout("preback()", 0);
+    window.onunload = function () { null; }
+
+</script>

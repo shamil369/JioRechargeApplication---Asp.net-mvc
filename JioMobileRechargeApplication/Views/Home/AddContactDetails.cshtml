@@ -1,0 +1,113 @@
+﻿@model JioMobileRechargeApplication.Models.ContactModel
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/Contactus.css?Version=7" rel="stylesheet" />
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<div class="container">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <div class="row d-md-flex justify-content-evenly " style="background-color:#e4e4e4" >
+        <p>&nbsp;</p>
+        <h1 class="text-center text-info">Contact us</h1>
+        <p>&nbsp;</p>
+        <div class="col-md-4 px-5">
+            <h4>Address</h4>
+            <address class="fs-5">
+                39/14, Sarjapur - Marathahali&nbsp;Rd,<br />
+                Ibbaluru, Bellandur, Bengaluru,<br />
+                Karnataka 560103<br />
+                <abbr title="Phone">P:</abbr>
+                425.555.0100
+            </address>
+            <h4>Email</h4>
+            <address>
+                Support:  <a href="mailto:Support@example.com">Support@jio.com</a><br />
+                Marketing: <a href="mailto:Marketing@example.com">Marketing@jio.com</a>
+            </address>
+            <h4>Phone number</h4>
+            <address>
+                WhatsApp: 9845710000<br />
+                Telegram: 82456931255
+            </address>
+        </div>
+        <div class="col-md-5 px-5">
+            <h4>Locate us</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31110.715623929696!2d77.65207375758057!3d12.918038244499659!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1356b0aa4147%3A0x923067b72bbbb262!2sReliance%20Jio%20Infocomm%20Pvt.%20Ltd.%20Bangalore!5e0!3m2!1sen!2sin!4v1693906333154!5m2!1sen!2sin" width="500" height="385" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<p>&nbsp;</p> <p>&nbsp;</p>
+<div class="row px-5">
+    <p>&nbsp;</p>
+    <div class="container d-flex justify-content-evenly  " style="background-color:#c0f6cb;">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal px-4" style="background-color:#c0f6cb; border-radius: 8px; width: 430px; ">
+                <p>&nbsp;</p>
+                <h2 class="text-center">Enquiry</h2>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", @id = "hello", @placeholder = "Enter First name", @onfocusout = "contactFirstname()" } })
+                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                        <small style="color:red;"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control ", @id = "bye", @placeholder = "Enter Last name", @onfocusout = "contactLastname()" } })
+                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                        <small style="color:red;"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phonenumber, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phonenumber, new { htmlAttributes = new { @class = "form-control", @id = "fan", @placeholder = "Enter Phone number", @onfocusout = "contactPhone()" } })
+                        @Html.ValidationMessageFor(model => model.Phonenumber, "", new { @class = "text-danger" })
+                        <small style="color:red;"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id = "contactemail", @placeholder = "Enter Email", @onfocusout = "contactEmail()" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <small style="color:red;"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-12 " })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @id = "enquirydesc", @placeholder = "Enter Comments", @onfocusout = "contactDescription()" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        <small style="color:red;"></small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-center">
+                        <input type="submit" value="send" class="btn btn-success text-center" onclick="return contactValidation()" />
+                    </div>
+                </div>
+                <p>&nbsp;</p>
+            </div>
+        }
+        <div class="d-none d-md-inline">
+            <p>&nbsp;</p>
+            <img src="~/Images/feedback.jpg" width="500" height="500" style="border-radius:10px;" />
+        </div>
+
+
+    </div>
+</div>
+<script src="~/Content/Javscript/Contact.js?Version=2"></script>

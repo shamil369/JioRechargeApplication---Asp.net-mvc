@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Session["Username"].ToString() - Jio Mobile Recharge Application</title>
+    <link rel="icon" href="~/Images/Jio_logo.png" type="image/png" sizes="16x16"/>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+<link href="~/Content/Css/UserLayout.css?Version=34" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark nav-color ">
+        <div class="container">
+            <div class="d-flex justify-content-around align-items-center">
+                <div> @Html.ActionLink("Jio", "Index", "Home", null, new { @class = "image-logo", @style = "background-image: url('/Images/Jio_logo.png')" })</div>
+                <div class="mx-2">  @Html.ActionLink("Jio User Panel", "IndexUser", "User", new { area = "" }, new { @class = "navbar-brand" })</div>
+            </div>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between py-2 navb-right" >
+            <ul class="navbar-nav flex-grow-1 ">
+
+                <li class="userleft">@Html.ActionLink("User panel", "IndexUser", "User", new { area = "" }, new { @class = "nav-link textcolor " })</li>
+                <li class="mx-2">@Html.ActionLink("Account", "AccountView", "User", new { area = "" }, new { @class = "nav-link textcolor " })</li>
+                <li class="mx-2">@Html.ActionLink("Plans", "PlanView", "User", new { area = "" }, new { @class = "nav-link textcolor " })</li>
+                <li class="mx-2">@Html.ActionLink("Transactions", "ShowTransactionDetail", "User", new { name = @Session["Username"].ToString() }, new { @class = "nav-link textcolor " })</li>
+              
+                <li class="mx-2">
+                    <div class="dropdown my-2 mx-2">
+                        <a class="dropdown-toggle text-decoration-none" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: rgba(255,255,255,.5); ">
+                            @Session["Username"].ToString()
+                        </a>
+                        <div class="dropdown-menu my-4" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/User/LogoutUser">Logout</a>
+                        </div>
+                    </div>
+                    @*  @Html.ActionLink("Logout", "LogoutUser", "User", new { area = "" }, new { @class = "nav-link textcolor" }) *@
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="row footer-background">
+                <div>
+                    <div class="col-sm-12"><h2 class="text-center">Jio Mobile Recharge Application </h2></div>
+                    <div class="row ">
+                        <div class=" col-md-4 footer-list1 text-center">
+                            <div><h4 class="text-info ">Useful Links</h4></div>
+                            <ul>
+                                <li>@Html.ActionLink("Login", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("Signup", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("Contact", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("About", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                            </ul>
+                        </div>
+
+                        <div class=" col-md-4 footer-list2 text-center">
+                            <div><h4 class="text-info">Information</h4></div>
+                            <ul>
+                                <li>@Html.ActionLink("Privacy", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("FAQs", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("Careers", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                                <li>@Html.ActionLink("Support", "Index", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                            </ul>
+                        </div>
+                        <div class=" col-md-4 footer-list3">
+                            <div><h4 class="text-center text-info">Contact Information</h4></div>
+                            <ul>
+                                <li>
+
+                                    <h6 class="d-inline-block mx-5 px-4">Address:</h6>
+                                    <div class="contact-address">Bangalore North,Electronic city,Tower 2 , Fourth floor,32/A</div>
+
+                                </li>
+                                <li>
+                                    <h6 class="d-inline-block mx-5 px-4">Email:</h6>
+                                    <div class="contact-address">jioinfotech@org.in</div>
+                                </li>
+                                <li>
+                                    <h6 class="d-inline-block mx-5 px-4">Phone number:</h6>
+                                    <div class="contact-address">9745683218 | 8284878695 | 9875632514</div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="social">
+                            <ul class="d-flex justify-content-around ">
+                                <li class="solist"><a><img src="~/Images/instagram.svg" alt="insta" width="50" height="50" /></a></li>
+                                <li class="solist"><a><img src="~/Images/fb.svg" alt="dad" width="50" height="50" /></a></li>
+                                <li class="solist"><a><img src="~/Images/linkedin.svg" alt="asd" width="50" height="50" /></a></li>
+                                <li class="solist"><a><img src="~/Images/twitter.svg" alt="asd" width="50" height="50" /></a></li>
+                                <li class="solist"><a><img src="~/Images/instagram.svg" alt="" width="50" height="50" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <hr />
+                <p>&copy; Copyrights - Jio Mobile Recharge Application</p>
+            </div>
+        </footer>
+        <div>
+            <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;jj</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

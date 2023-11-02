@@ -1,0 +1,18 @@
+﻿
+
+.logdiv {
+    background-color: #bbe4e5;
+    width: 500px;
+    padding-left: 100px;
+    box-shadow: 1px 1px 5px 3px #888888;
+}
+
+
+.formsuccess {
+    visibility: hidden;
+}
+
+.formerror {
+    visibility: visible;
+    color: red;
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<JioMobileRechargeApplication.Models.AdminModel>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>&nbsp;</h1>
+    <h1 class="text-center ">Admins</h1>
+    
+    <p class="text-end p-2">
+        @Html.ActionLink("Add New", "AddAdminDetails", new { area = "" }, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @*   @Html.HiddenFor(model=>item.Id) *@
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td class="text-center">
+
+                    @Html.ActionLink("Edit", "EditAdminDetails", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "DeleteAdmin", new { id = item.Id }, new { onclick = "return confirm('Do you want to delete it');", @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+<h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1>

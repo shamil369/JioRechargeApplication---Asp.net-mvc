@@ -1,0 +1,96 @@
+-----------Exception Details on  18-09-2023 18:05:31-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 18-09-2023 18:05:31
+
+Error Line No : line 91
+
+Error Message: FormatException
+
+Exception Type: System.FormatException
+
+Error Location : String was not recognized as a valid DateTime.
+
+ Error Page Url: https://localhost:44305/Register/GetDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  18-09-2023 18:06:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 18-09-2023 18:06:18
+
+Error Line No : line 91
+
+Error Message: FormatException
+
+Exception Type: System.FormatException
+
+Error Location : String was not recognized as a valid DateTime.
+
+ Error Page Url: https://localhost:44305/Register/GetDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  18-09-2023 18:15:30-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 18-09-2023 18:15:30
+
+Error Line No : line 91
+
+Error Message: FormatException
+
+Exception Type: System.FormatException
+
+Error Location : String was not recognized as a valid DateTime.
+
+ Error Page Url: https://localhost:44305/Register/GetDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  18-09-2023 18:19:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 18-09-2023 18:19:23
+
+Error Line No : line 91
+
+Error Message: FormatException
+
+Exception Type: System.FormatException
+
+Error Location : String was not recognized as a valid DateTime.
+
+ Error Page Url: https://localhost:44305/Register/GetDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

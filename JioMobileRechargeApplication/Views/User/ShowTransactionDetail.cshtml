@@ -1,0 +1,55 @@
+﻿@model IEnumerable<JioMobileRechargeApplication.Models.TransactionModel>
+
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<div class="container">
+    <p>&nbsp;</p>
+    <p>&nbsp; </p>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rechargeplan)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rechargeplan)
+            </td>
+           
+        </tr>
+    }
+    
+    </table>
+</div>
+<h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1>
+<script type="text/javascript">
+    function preback() {
+        window.history.forward();
+    }
+    setTimeout("preback()", 0);
+    window.onunload = function () { null; }
+
+</script>

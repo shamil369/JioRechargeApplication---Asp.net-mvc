@@ -1,0 +1,119 @@
+﻿@model IEnumerable<JioMobileRechargeApplication.Models.RegisterModel>
+
+@{
+    ViewBag.Title="Admin";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div class="container">
+    <p>&nbsp;</p>
+    <h1 class="text-center">Users</h1>
+    <div class="table-responsive">
+        <p class="text-end p-2">
+            @*     @Html.ActionLink("Add New", "AddDetails", "Register", new { @class = "btn btn-primary" }) *@
+        </p>
+        <table class="table table-bordered table-hover table-sm table-light ">
+            <tr>
+                <th class="w-100">
+                    @Html.DisplayNameFor(model => model.Firstname)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dateofbirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phonenumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Emailaddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                @*  <th>
+                        @Html.DisplayNameFor(model => model.Confirmpassword)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Profilephoto)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                @*   @Html.HiddenFor(model=>item.Id) *@
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dateofbirth)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phonenumber)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Emailaddress)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    @*  <td>
+                            @Html.DisplayFor(modelItem => item.Confirmpassword)
+                        </td>*@
+                    <td>
+                        @{
+                            var base64 = Convert.ToBase64String(item.Profilephoto);
+                            var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <img src="@imgsrc" width="60" height="60" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+
+                    <td>
+                    @*  @Html.ActionLink("Edit", "EditDetails", new { id = item.Id }, new { @class = "btn btn-success" }) |*@
+
+                        @Html.ActionLink("Delete", "Deletedetail", new { id = item.Id }, new { onclick = "return confirm('Do you want to delete it');", @class = "btn btn-danger" })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<h1>&nbsp;</h1> <h1>&nbsp;</h1> <h1>&nbsp;</h1>

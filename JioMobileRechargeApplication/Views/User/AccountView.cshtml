@@ -1,0 +1,258 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<div class="container">
+@*    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <div class="col-md-10 p-4 my-2 account">
+            <h5>My Account</h5>
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>PLAN</h6>
+                    <h6>@ViewBag.Account.Rechargedplan</h6>
+                </div>
+                <div>
+                    <h6>DATA</h6>
+                    <h6>@ViewBag.Account.Data</h6>
+                </div>
+                <div>
+                    <h6>VOICE</h6>
+                    <h6>@ViewBag.Account.Voice</h6>
+                </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>VALIDITY</h6>
+                    <h6>@ViewBag.Account.Validity</h6>
+                </div>
+                <div>
+                    <h6>SMS</h6>
+                    <h6>@ViewBag.Account.Sms</h6>
+                </div>
+                <div>
+                    <h6>BALANCE</h6>
+                    <h6>@ViewBag.Account.Balance</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    *@
+
+    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <div class="col-md-10 p-4 my-2 account">
+            <h5>My Account</h5>
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>PLAN</h6>
+                    <h6>@ViewBag.Accounts.Rechargedplan</h6>
+                </div>
+                <div>
+                    <h6>DATA</h6>
+                    <h6>@ViewBag.Accounts.Data</h6>
+                </div>
+                <div>
+                    <h6>VOICE</h6>
+                    <h6>@ViewBag.Accounts.Voice</h6>
+                </div>
+                <div>
+                    <h6>Extra Data</h6>
+                    <h6>@ViewBag.Accounts.Extradata</h6>
+                </div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h6>VALIDITY</h6>
+                    <h6>@ViewBag.Accounts.Validity</h6>
+                </div>
+                <div>
+                    <h6>SMS</h6>
+                    <h6>@ViewBag.Accounts.Sms</h6>
+                </div>
+                <div>
+                    <h6>BALANCE</h6>
+                    <h6>@ViewBag.Accounts.Balance</h6>
+                </div>
+                <div>
+                    <h6>Expiry</h6>
+                    <h6>@ViewBag.Accounts.Expiry</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+    <div class="row justify-content-evenly">
+        <h4>New Offers</h4>
+        @foreach (JioMobileRechargeApplication.Models.PlanModel plan in ViewBag.Plans)
+        {
+            if (@plan.Id > 4)
+            {
+                <div class="col-md-5 p-4 my-2 offers">
+                    <div class="d-flex justify-content-between px-2 ">
+                        <div>
+                            <h3>&#8377; @plan.Price</h3>
+                        </div>
+                        <div>
+                            <h6 class="text-danger"><em>UNLIMITED<br />TRUE 5G</em></h6>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between px-2 ">
+                        <div>
+                            <h6>VOICE</h6>
+                            <h6>@plan.Voice</h6>
+                        </div>
+                        <div>
+                            <h6>DATA</h6>
+                            <h6>@plan.Data</h6>
+                        </div>
+                        <div>
+                            <h6>VALIDITY</h6>
+                            <h6>@plan.Validity</h6>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="d-flex justify-content-between px-2 ">
+                        <div>
+                            <h6>SMS</h6>
+                            <h6>@plan.Sms</h6>
+                        </div>
+                        <div class="text-end mx-3 my-3">
+                            @Html.ActionLink("Recharge", "Recharge", "User", new { id = @plan.Id }, new { @class = " btn btn-primary" })
+                        </div>
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+
+    <p>&nbsp;</p>
+    <div class="row ">
+        <h4>Extra Data</h4>
+        <ul class="d-flex flex-grow-4 topup">
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>5&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 5GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;50</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 50 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>1&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 1GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;10</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 10 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>10&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 10GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;100</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 100 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>15&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 15GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;150</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 150 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>20&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 20GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;200</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 200 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class=" p-1 my-2 mx-2 rounded-2 topcolor">
+                    <div class="d-flex justify-content-around ">
+                        <div class="mx-2">
+                            <h3>40&nbsp;GB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <div>Additional Data 40GB </div>
+                        </div>
+                        <div class="mx-2">
+                            <h3> &#8377;400</h3>
+                        </div>
+                    </div>
+                    <small>&nbsp;</small>
+                    <div class="text-end mx-3 my-2">
+                        @Html.ActionLink("Add data", "ExtraData", "User", new { id = 400 }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+
+
+</div>
+<script type="text/javascript">
+    function preback() {
+        window.history.forward();
+    }
+    setTimeout("preback()", 0);
+    window.onunload = function () { null; }
+
+</script>

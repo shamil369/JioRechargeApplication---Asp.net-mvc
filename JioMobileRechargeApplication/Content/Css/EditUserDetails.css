@@ -1,0 +1,39 @@
+﻿/* User panel edit user profile */
+
+.edituserdiv {
+    background-color: #37a7f1;
+    width: 500px;
+    padding-left: 100px;
+    box-shadow: 1px 1px 5px 3px #888888;
+}
+
+#statedrop {
+    width: 290px;
+    height: 39px;
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+#citydrop {
+    width: 290px;
+    height: 39px;
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+#textaddress {
+    width: 290px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 6px;
+}
+
+/* validation for edit and add user */
+.formsuccess {
+    visibility: hidden;
+}
+
+.formerror {
+    visibility: visible;
+    color: red;
+}

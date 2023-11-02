@@ -1,0 +1,73 @@
+﻿@model JioMobileRechargeApplication.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+<link href="~/Content/Css/Login.css" rel="stylesheet" />
+
+<div class="row p-5">
+    <p>&nbsp;</p>
+    @if (@ViewBag.Loginfo != null)
+    {
+        <p class="text-end fs-5 rounded-2 w-25 p-3 text-bg-dark text-info">@ViewBag.Loginfo</p>
+    }
+    @if (@ViewBag.Loginfo2 != null)
+    {
+        <p class="text-end fs-5 rounded-2 w-25 p-3 text-bg-dark text-info">@ViewBag.Loginfo2</p>
+    }
+    <div class="d-flex justify-content-center">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal logdiv">
+                <p>&nbsp;</p>
+                <h4 class="text-center">Signin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @id = "usernamelogin", @placeholder = "Enter Username", @onfocusout = "checkUsername();" } })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        <small></small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id = "passwordlogin", @placeholder = "Enter Password", @onfocusout = "checkPassword();", @type = "password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <small></small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-center">
+                        <input type="submit" value="Signin" class="btn btn-success text-center" onclick=" return checkValidate()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <p>&nbsp;</p> 
+            </div>
+        }
+
+    </div>
+</div>
+<h1>&nbsp;</h1><h1>&nbsp;</h1>
+
+<script src="~/Content/Javscript/Login.js?Version=3" type="text/javascript"></script>
+<script type="text/javascript">
+    function preback() {
+        window.history.forward();
+    }
+    setTimeout("preback()", 0);
+    window.onunload = function () { null; }
+
+</script>

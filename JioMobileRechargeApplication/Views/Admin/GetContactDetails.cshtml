@@ -1,0 +1,59 @@
+﻿@model IEnumerable<JioMobileRechargeApplication.Models.ContactModel>
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div class="container">
+    <p>&nbsp;</p>
+   
+    <h1 class="text-center ">Enquiries</h1>
+    <small>&nbsp;</small>
+    <table class="table table-bordered table-hover table-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @*   @Html.HiddenFor(model=>item.Id) *@
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @*  @Html.ActionLink("Edit", "EditContactDetails", new { id = item.Id }, new { @class = "btn btn-success" }) *@
+                    @Html.ActionLink("Delete", "DeleteContact", new { id = item.Id }, new { onclick = "return confirm('Do you want to delete it');", @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+  <h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1><h1>&nbsp;</h1>

@@ -1,0 +1,48 @@
+-----------Exception Details on  23-09-2023 10:40:59-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-09-2023 10:40:59
+
+Error Line No : line 61
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Procedure or function 'SPI_AddSignupDetails' expects parameter '@city', which was not supplied.
+
+ Error Page Url: https://localhost:44305/Register/AddDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-09-2023 10:57:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-09-2023 10:57:37
+
+Error Line No : line 87
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Error converting data type nvarchar to date.
+
+ Error Page Url: https://localhost:44305/Register/AddDetails
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
